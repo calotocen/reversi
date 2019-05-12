@@ -5,12 +5,26 @@ body {
     width: 100%;
     height: 100%;
     margin: 0px;
-    padding: 0px;
     font-family: "Helvetica Neue", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-    font-size: 16px;
 }
 
-.view {
+div {
+    user-select: none;
+    -ms-user-select: none; /* IE, Edge */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Chrome、Safari、他 */
+}
+
+.nodisp {
+    display: none;
+}
+
+.large-letters {
+    font-size: 500%;
+    font-weight: 700;
+}
+
+.parent-view {
     position: relative;
     display: block;
     width: 100vmin;
@@ -18,15 +32,27 @@ body {
     background: #d2ffcc;
 }
 
-.scene-start {
+.view {
     position: absolute;
-    z-index: 1;
     width: 100%;
     height: 100%;
+}
+
+.view.start {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 2px;
+}
+
+.view.main {
+    display: block;
+}
+
+.view.result {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button {
@@ -38,56 +64,103 @@ body {
     background-color: #333333;
     text-align: center;
     color: white;
-    font-size: 500%;
-    font-weight: 700;
 }
 
 .button:hover {
-    background-color: #4fbc5f;
+    background-color: #44bb55;
 }
 
-.scene-end {
-    position: absolute;
-    z-index: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
-}
-
-.label-victory {
+.message {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 30%;
-    background-color: #ff636b;
+    height: 100%;
+    color: black;
+    background-color: #99ff99;
     text-align: center;
-    color: white;
-    font-size: 800%;
-    font-weight: 700;
 }
 
-.label-victory::after {
+.message::after {
     position: absolute;
     top: 1vmin;
     bottom: 1vmin;
     left: 1vmin;
     right: 1vmin;
     content: '';
-    border: 1vmin dashed #fff;
+    border: 0.5vmin dashed #ffffff;
     border-radius: 2vmin;
 }
 
-.label-defeat {
-    display: none;
+.message.result {
+    position: absolute;
+    left: 10%;
+    top: 35%;
+    width: 80%;
+    height: 30%;
 }
 
-div.circle {
-    width: 100px;
-    height: 100px;
-    background: linear-gradient(to bottom right, #FFF, #FFC778); 
+.message.result.victory {
+    color: white;
+    background-color: #ff2222;
+}
+
+.message.result.defeat {
+    color: white;
+    background-color: #152b99;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, auto);
+    gap: 2px;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border: solid 2px black;
+    box-sizing: border-box;
+}
+
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #44bb55;
+}
+
+.square:hover .stone.empty-for-black {
+    background: rgba(0, 0, 0, 0.5);
+    border: solid 2px rgba(51, 51, 51, 0.5);
+}
+
+.square:hover .stone.empty-for-white:hover {
+    background: rgba(255, 255, 255, 0.5);
+    border: solid 2px rgba(238, 238, 238, 0.5);
+}
+
+.stone {
+    width: 9vmin;
+    height: 9vmin;
     border-radius: 50%;
+}
+
+.stone.black {
+    background: linear-gradient(to bottom right, #777777, #000000); 
+    border: solid 2px #333333;
+}
+
+.stone.white {
+    background: linear-gradient(to bottom right, #ffffff, #cccccc); 
+    border: solid 2px #eeeeee;
+}
+
+.stone.empty-for-black {
+    background: transparent;
+    border: solid 2px transparent;
+}
+
+.stone.empty-for-white {
+    background: transparent;
+    border: solid 2px transparent;
 }
