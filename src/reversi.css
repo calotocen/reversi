@@ -1,7 +1,4 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html, body {
     width: 100%;
     height: 100%;
     margin: 0px;
@@ -27,14 +24,16 @@ div {
 }
 
 .screen {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 }
 
 .parent-view {
-    position: relative;
-    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    margin: auto;
     width: 100vmin;
     height: 100vmin;
     background: #d2ffcc;
@@ -87,9 +86,9 @@ div {
 .message::after {
     position: absolute;
     top: 1vmin;
-    bottom: 1vmin;
-    left: 1vmin;
     right: 1vmin;
+    left: 1vmin;
+    bottom: 1vmin;
     content: '';
     border: 0.5vmin dashed #ffffff;
     border-radius: 2vmin;
@@ -97,8 +96,8 @@ div {
 
 .message.result {
     position: absolute;
-    left: 10%;
     top: 35%;
+    left: 10%;
     width: 80%;
     height: 30%;
 }
