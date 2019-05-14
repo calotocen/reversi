@@ -6,88 +6,90 @@
         <link rel="stylesheet" href="reversi.css">
         <script type="text/javascript" src="reversi.js"></script>
     </head>
-    <body ontouchstart="">
-        <div class="parent-view">
-            <div id="startView" class="view start">
-                <div class="button large-letters">先手</div>
-                <div class="button large-letters">後手</div>
-                <div class="button large-letters">おまかせ</div>
-            </div>
-            <div id="mainView" class="view main">
-                <div class="board">
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
-                    <div class="square"><div class="stone empty-for-black"></div></div>
+    <body>
+        <div class="screen" ontouchstart="" onclick="">
+            <div class="parent-view">
+                <div id="startView" class="view start">
+                    <div class="button large-letters">先手</div>
+                    <div class="button large-letters">後手</div>
+                    <div class="button large-letters">おまかせ</div>
                 </div>
-            </div>
-            <div id="resultView" class="view result">
-                <div id="resultMessage" class="message result large-letters">
-                    <div class="stone black"></div><span style="margin: 0px 10% 0px 3%">11</span>
-                    <div class="stone white"></div><span style="margin: 0px 0px 0px 3%">22</span>
+                <div id="mainView" class="view main">
+                    <div class="board">
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square"><div class="stone empty-for-black"></div></div>
+                    </div>
                 </div>
-                <div id="victoryMessage" class="message result victory large-letters">勝ち</div>
-                <div id="defeatMessage" class="message result defeat large-letters">負け</div>
+                <div id="resultView" class="view result">
+                    <div id="resultMessage" class="message result large-letters">
+                        <div class="stone black"></div><span style="margin: 0px 10% 0px 3%">11</span>
+                        <div class="stone white"></div><span style="margin: 0px 0px 0px 3%">22</span>
+                    </div>
+                    <div id="victoryMessage" class="message result victory large-letters">勝ち</div>
+                    <div id="defeatMessage" class="message result defeat large-letters">負け</div>
+                </div>
             </div>
         </div>
     </body>
