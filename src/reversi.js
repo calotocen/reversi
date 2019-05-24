@@ -1,27 +1,77 @@
-let elements;
-let index;
+let gameController;
 
-window.onload = () => {
-    elements = [];
-    ["startView", "mainView", "resultView", "resultMessage", "victoryMessage", "defeatMessage"].forEach(id => {
-        elements.push(document.getElementById(id));
-    });
-    elements.forEach(e => {
-        e.style.display = "none";
-    });
-    index = 0;
+
+class StartScene {
+    constructor() {
+        this.viewElement = document.getElementById("startView");
+    }
+
+    start() {
+        this.viewElement.style.display = "";
+        window.onclick = event => {
+            let move = event.target.getAttribute("value");
+            if (move == "random") {
+                move = (Math.random() < 0.5) ? "black" : "white";
+            }
+
+            this.viewElement.style.display = "none";
+            (new MainScene(move)).start();
+        };
+    }
 }
 
-window.onclick = () => {
-    elements.forEach((e, i) => {
-        if (i == index) {
-            if (i >= 3) {
-                e.parentNode.style.display = "";
+class MainScene {
+    constructor(move) {
+        this.viewElement = document.getElementById("mainView");
+    }
+
+    start() {
+        (new ResultScene(12, 34, "victory")).start();
+    }
+}
+
+class ResultScene {
+    constructor(numofBlack, numofWhite, result) {
+        this.numofBlack = numofBlack;
+        this.numofWhite = numofWhite;
+        this.result = result;
+        this.viewElement = document.getElementById("resultView");
+        this.resultMessageElement = document.getElementById("resultMessage");
+        this.victoryMessageElement = document.getElementById("victoryMessage");
+        this.defeatMessageElement = document.getElementById("defeatMessage");
+        this.mainViewElement = document.getElementById("mainView");
+    }
+
+    start() {
+        this.viewElement.style.display = "";
+        this.mainViewElement.style.display = "";
+        this.resultMessageElement.style.display = "";
+        this.victoryMessageElement.style.display = "none";
+        this.defeatMessageElement.style.display = "none";
+        let spanElements = this.resultMessageElement.getElementsByTagName("span");
+        spanElements[0].textContent = this.numofBlack;
+        spanElements[1].textContent = this.numofWhite;
+
+        window.onclick = event => {
+            this.resultMessageElement.style.display = "none";
+            if (this.result == "victory") {
+                this.victoryMessageElement.style.display = "";
+            } else {
+                this.defeatMessageElement.style.display = "";
             }
-            e.style.display = "";
-        } else {
-            e.style.display = "none";
+
+            window.onclick = event => {
+                this.viewElement.style.display = "none";
+                this.mainViewElement.style.display = "none";
+                (new StartScene).start();
+            }
         }
-    });
-    index = (index + 1) % elements.length;
+    }
+}
+
+window.onload = () => {
+    document.getElementById("startView").style.display = "none";
+    document.getElementById("mainView").style.display = "none";
+    document.getElementById("resultView").style.display = "none";
+    (new StartScene).start();
 }
