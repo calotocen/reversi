@@ -5,6 +5,17 @@
         <title>a little strong reversi program</title>
         <link rel="stylesheet" href="reversi.css">
         <script type="text/javascript" src="reversi.js"></script>
+        <script type="text/javascript" src="reversi_start_scene.js"></script>
+        <script type="text/javascript" src="reversi_main_scene.js"></script>
+        <script type="text/javascript" src="reversi_result_scene.js"></script>
+        <script type="text/javascript">
+            window.onload = () => {
+                document.getElementById("startView").style.display = "none";
+                document.getElementById("mainView").style.display = "none";
+                document.getElementById("resultView").style.display = "none";
+                (new StartScene).start();
+            }
+        </script>
     </head>
     <body>
         <div class="screen" ontouchstart="" onclick="">
@@ -16,70 +27,70 @@
                 </div>
                 <div id="mainView" class="view main">
                     <div class="board">
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
-                        <div class="square"><div class="stone empty-for-black"></div></div>
+                        <div class="square" value="0"><div class="stone empty-for-black" value="0"></div></div>
+                        <div class="square" value="1"><div class="stone empty-for-black" value="1"></div></div>
+                        <div class="square" value="2"><div class="stone empty-for-black" value="2"></div></div>
+                        <div class="square" value="3"><div class="stone empty-for-black" value="3"></div></div>
+                        <div class="square" value="4"><div class="stone empty-for-black" value="4"></div></div>
+                        <div class="square" value="5"><div class="stone empty-for-black" value="5"></div></div>
+                        <div class="square" value="6"><div class="stone empty-for-black" value="6"></div></div>
+                        <div class="square" value="7"><div class="stone empty-for-black" value="7"></div></div>
+                        <div class="square" value="8"><div class="stone empty-for-black" value="8"></div></div>
+                        <div class="square" value="9"><div class="stone empty-for-black" value="9"></div></div>
+                        <div class="square" value="10"><div class="stone empty-for-black" value="10"></div></div>
+                        <div class="square" value="11"><div class="stone empty-for-black" value="11"></div></div>
+                        <div class="square" value="12"><div class="stone empty-for-black" value="12"></div></div>
+                        <div class="square" value="13"><div class="stone empty-for-black" value="13"></div></div>
+                        <div class="square" value="14"><div class="stone empty-for-black" value="14"></div></div>
+                        <div class="square" value="15"><div class="stone empty-for-black" value="15"></div></div>
+                        <div class="square" value="16"><div class="stone empty-for-black" value="16"></div></div>
+                        <div class="square" value="17"><div class="stone empty-for-black" value="17"></div></div>
+                        <div class="square" value="18"><div class="stone empty-for-black" value="18"></div></div>
+                        <div class="square" value="19"><div class="stone empty-for-black" value="19"></div></div>
+                        <div class="square" value="20"><div class="stone empty-for-black" value="20"></div></div>
+                        <div class="square" value="21"><div class="stone empty-for-black" value="21"></div></div>
+                        <div class="square" value="22"><div class="stone empty-for-black" value="22"></div></div>
+                        <div class="square" value="23"><div class="stone empty-for-black" value="23"></div></div>
+                        <div class="square" value="24"><div class="stone empty-for-black" value="24"></div></div>
+                        <div class="square" value="25"><div class="stone empty-for-black" value="25"></div></div>
+                        <div class="square" value="26"><div class="stone empty-for-black" value="26"></div></div>
+                        <div class="square" value="27"><div class="stone empty-for-black" value="27"></div></div>
+                        <div class="square" value="28"><div class="stone empty-for-black" value="28"></div></div>
+                        <div class="square" value="29"><div class="stone empty-for-black" value="29"></div></div>
+                        <div class="square" value="30"><div class="stone empty-for-black" value="30"></div></div>
+                        <div class="square" value="31"><div class="stone empty-for-black" value="31"></div></div>
+                        <div class="square" value="32"><div class="stone empty-for-black" value="32"></div></div>
+                        <div class="square" value="33"><div class="stone empty-for-black" value="33"></div></div>
+                        <div class="square" value="34"><div class="stone empty-for-black" value="34"></div></div>
+                        <div class="square" value="35"><div class="stone empty-for-black" value="35"></div></div>
+                        <div class="square" value="36"><div class="stone empty-for-black" value="36"></div></div>
+                        <div class="square" value="37"><div class="stone empty-for-black" value="37"></div></div>
+                        <div class="square" value="38"><div class="stone empty-for-black" value="38"></div></div>
+                        <div class="square" value="39"><div class="stone empty-for-black" value="39"></div></div>
+                        <div class="square" value="40"><div class="stone empty-for-black" value="40"></div></div>
+                        <div class="square" value="41"><div class="stone empty-for-black" value="41"></div></div>
+                        <div class="square" value="42"><div class="stone empty-for-black" value="42"></div></div>
+                        <div class="square" value="43"><div class="stone empty-for-black" value="43"></div></div>
+                        <div class="square" value="44"><div class="stone empty-for-black" value="44"></div></div>
+                        <div class="square" value="45"><div class="stone empty-for-black" value="45"></div></div>
+                        <div class="square" value="46"><div class="stone empty-for-black" value="46"></div></div>
+                        <div class="square" value="47"><div class="stone empty-for-black" value="47"></div></div>
+                        <div class="square" value="48"><div class="stone empty-for-black" value="48"></div></div>
+                        <div class="square" value="49"><div class="stone empty-for-black" value="49"></div></div>
+                        <div class="square" value="50"><div class="stone empty-for-black" value="50"></div></div>
+                        <div class="square" value="51"><div class="stone empty-for-black" value="51"></div></div>
+                        <div class="square" value="52"><div class="stone empty-for-black" value="52"></div></div>
+                        <div class="square" value="53"><div class="stone empty-for-black" value="53"></div></div>
+                        <div class="square" value="54"><div class="stone empty-for-black" value="54"></div></div>
+                        <div class="square" value="55"><div class="stone empty-for-black" value="55"></div></div>
+                        <div class="square" value="56"><div class="stone empty-for-black" value="56"></div></div>
+                        <div class="square" value="57"><div class="stone empty-for-black" value="57"></div></div>
+                        <div class="square" value="58"><div class="stone empty-for-black" value="58"></div></div>
+                        <div class="square" value="59"><div class="stone empty-for-black" value="59"></div></div>
+                        <div class="square" value="60"><div class="stone empty-for-black" value="60"></div></div>
+                        <div class="square" value="61"><div class="stone empty-for-black" value="61"></div></div>
+                        <div class="square" value="62"><div class="stone empty-for-black" value="62"></div></div>
+                        <div class="square" value="63"><div class="stone empty-for-black" value="63"></div></div>
                     </div>
                 </div>
                 <div id="resultView" class="view result">

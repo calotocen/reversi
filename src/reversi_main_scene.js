@@ -1,0 +1,21 @@
+class MainScene {
+    constructor(humanPiece) {
+        this.viewElement = document.getElementById("mainView");
+        this.model = new ReversiModel();
+        this.view = new ReversiView(this.model, this.viewElement.querySelectorAll(".stone.empty-for-black"));
+    }
+
+    start() {
+        this.model.setUp();
+        this.view.update();
+        this.viewElement.style.display = "";
+        window.onclick = event => {
+            const index = event.target.getAttribute("value");
+            const currentMove = this.model.currentMove;
+            this.model.board[index] = currentMove;
+            this.model.currentMove = Piece.opposite(currentMove);
+            this.view.update();
+        };
+//      (new ResultScene(12, 34, "victory")).start();
+    }
+}

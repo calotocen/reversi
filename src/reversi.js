@@ -1,77 +1,83 @@
-let gameController;
-
-
-class StartScene {
-    constructor() {
-        this.viewElement = document.getElementById("startView");
+class Piece {
+    static get none() {
+        return 0;
     }
-
-    start() {
-        this.viewElement.style.display = "";
-        window.onclick = event => {
-            let move = event.target.getAttribute("value");
-            if (move == "random") {
-                move = (Math.random() < 0.5) ? "black" : "white";
-            }
-
-            this.viewElement.style.display = "none";
-            (new MainScene(move)).start();
+    static get black() {
+        return 1;
+    }
+    static get white() {
+        return 2;
+    }
+    static opposite(piece) {
+        const oppositePiece = {
+            [this.none]: this.none,
+            [this.black]: this.white,
+            [this.white]: this.black,
         };
+        return oppositePiece[piece];
     }
 }
 
-class MainScene {
-    constructor(move) {
-        this.viewElement = document.getElementById("mainView");
+class Board extends Array {
+    constructor() {
+        super(64);       // 64 = this.width * this.height
+        this.width = 8;
+        this.height = 8;
+        this.fill(Piece.none);
     }
 
-    start() {
-        (new ResultScene(12, 34, "victory")).start();
-    }
-}
-
-class ResultScene {
-    constructor(numofBlack, numofWhite, result) {
-        this.numofBlack = numofBlack;
-        this.numofWhite = numofWhite;
-        this.result = result;
-        this.viewElement = document.getElementById("resultView");
-        this.resultMessageElement = document.getElementById("resultMessage");
-        this.victoryMessageElement = document.getElementById("victoryMessage");
-        this.defeatMessageElement = document.getElementById("defeatMessage");
-        this.mainViewElement = document.getElementById("mainView");
+    contains(x, y) {
+        return 0 <= x && x <= this.width && 0 <= y && y <= this.height;
     }
 
-    start() {
-        this.viewElement.style.display = "";
-        this.mainViewElement.style.display = "";
-        this.resultMessageElement.style.display = "";
-        this.victoryMessageElement.style.display = "none";
-        this.defeatMessageElement.style.display = "none";
-        let spanElements = this.resultMessageElement.getElementsByTagName("span");
-        spanElements[0].textContent = this.numofBlack;
-        spanElements[1].textContent = this.numofWhite;
+    get(x, y) {
+        return contains(x, y) ? this[x + y * this.width] : Piece.none;
+    }
 
-        window.onclick = event => {
-            this.resultMessageElement.style.display = "none";
-            if (this.result == "victory") {
-                this.victoryMessageElement.style.display = "";
-            } else {
-                this.defeatMessageElement.style.display = "";
-            }
-
-            window.onclick = event => {
-                this.viewElement.style.display = "none";
-                this.mainViewElement.style.display = "none";
-                (new StartScene).start();
-            }
-        }
+    set(x, y, piece) {
+        this[x + y * this.width] = piece;
     }
 }
 
-window.onload = () => {
-    document.getElementById("startView").style.display = "none";
-    document.getElementById("mainView").style.display = "none";
-    document.getElementById("resultView").style.display = "none";
-    (new StartScene).start();
+class ReversiModel {
+    constructor() {
+        this.currentMove = Piece.none;
+        this.board = new Board();
+    }
+
+    setUp() {
+        this.currentMove = Piece.black;
+        this.board.fill(Piece.none);
+        this.board.set(3, 3, Piece.white);
+        this.board.set(4, 3, Piece.black);
+        this.board.set(3, 4, Piece.black);
+        this.board.set(4, 4, Piece.white);
+    }
+}
+
+class ReversiView {
+    constructor(model, nodes) {
+        this.model = model;
+        this.nodes = nodes;     // type of this.nodes is NodeList.
+    }
+
+    update() {
+        const className = {
+            [Piece.black]: {
+                [Piece.none]: "stone empty-for-black",
+                [Piece.black]: "stone black",
+                [Piece.white]: "stone white",
+            },
+            [Piece.white]: {
+                [Piece.none]: "stone empty-for-white",
+                [Piece.black]: "stone black",
+                [Piece.white]: "stone white",
+            },
+        };
+        const currentMove = this.model.currentMove;
+        const board = this.model.board;
+        board.forEach((p, i) => {
+            this.nodes[i].className = className[currentMove][board[i]];
+        });
+    }
 }
