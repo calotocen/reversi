@@ -10,12 +10,7 @@ class MainScene {
         this.view.update();
         this.viewElement.style.display = "";
         window.onclick = event => {
-            const index = event.target.getAttribute("value");
-            const currentMove = this.model.currentMove;
-            this.model.board[index] = currentMove;
-            this.model.currentMove = Piece.opposite(currentMove);
-            this.view.update();
-        };
-//      (new ResultScene(12, 34, "victory")).start();
+            this.view.onclick(event);
+        }
     }
 }
