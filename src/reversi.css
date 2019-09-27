@@ -74,13 +74,17 @@ div {
 }
 
 .message {
-    position: relative;
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     color: black;
     background-color: #99ff99;
     text-align: center;
+    top: 35%;
+    left: 10%;
+    width: 80%;
+    height: 30%;
 }
 
 .message::after {
@@ -92,14 +96,6 @@ div {
     content: '';
     border: 0.5vmin dashed #ffffff;
     border-radius: 2vmin;
-}
-
-.message.result {
-    position: absolute;
-    top: 35%;
-    left: 10%;
-    width: 80%;
-    height: 30%;
 }
 
 .message.result.victory {

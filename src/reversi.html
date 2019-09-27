@@ -8,11 +8,13 @@
         <script type="text/javascript" src="reversi_main_mvc.js"></script>
         <script type="text/javascript" src="reversi_main_scene.js"></script>
         <script type="text/javascript" src="reversi_result_scene.js"></script>
+        <script type="text/javascript" src="reversi_message.js"></script>
         <script type="text/javascript">
             window.onload = () => {
                 document.getElementById("startView").style.display = "none";
                 document.getElementById("mainView").style.display = "none";
                 document.getElementById("resultView").style.display = "none";
+                document.getElementById("messageView").style.display = "none";
                 (new StartScene).start();
             }
         </script>
@@ -101,6 +103,7 @@
                     <div id="victoryMessage" class="message result victory large-letters">勝ち</div>
                     <div id="defeatMessage" class="message result defeat large-letters">負け</div>
                 </div>
+                <div id="messageView" class="message large-letters"></div>
             </div>
         </div>
     </body>
