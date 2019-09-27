@@ -142,7 +142,8 @@ class ReversiModel {
 class ReversiView {
     constructor(model, nodes) {
         this.model = model;
-        this.nodes = nodes;     // type of this.nodes is NodeList.
+        this.nodes = nodes;     // this.nodesは、NodeList型でなければならない。
+        this.messageView = null;
     }
 
     update() {
